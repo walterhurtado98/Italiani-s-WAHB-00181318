@@ -1,5 +1,16 @@
+/* El include iostream sirve para entrada y salida en consola
+   El include string sirve para usar cadena de texto*/
 #include<iostream>
+#include<string>
 using namespace std;
+
+struct personalInfo{
+	string name;
+	string municipality;
+	string neighborhood;
+    Address pAddress;
+};
+
 	
 	int main(){
     // Mostrar menu al usuario
@@ -23,7 +34,21 @@ using namespace std;
             case 5: seeTotalSale(); break;
             case 6: continuar = false;
         }
-    }while(continuar);
+    }}while(continuar);
+    
+    personalInfo* pData;
+    int size = 0;
+
+    cout << "Cantidad de datos a ingresar: "; cin >> size;
+    pData = new personalInfo[size];
+
+    for(int i = 0; i < size; i++){
+        cout << "Nombre completo: "; cin >> pData[i].name;
+        cout << "Colonia: "; cin>> pData[i].
+        cout << "No. Casa: "; cin >> pData[i].pAddress.houseNumber;
+        cout << "Municipio: "; cin >> (pData + i)->pAddress.municipality;
+        cout << "Departamento: "; cin >> (pData + i)->pAddress.state;
+        cin.ignore();
 	
 	return 0;
 }
