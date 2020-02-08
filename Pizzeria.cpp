@@ -6,14 +6,19 @@ using namespace std;
 string password  = "strcmp";
 
 struct entries{
-	int rollosDePizza = 0, panConAjo = 0, palitosDeQueso = 0;
+	int pizzaRolls = 0, garlicBread = 0, cheeseSticks = 0;
 
 };typedef struct entries eT;
 
-struct mainDish{
+struct mainDishes{
     int pizza = 0, pasta = 0, lasagna = 0;
     
-};typedef struct mainDish mD;
+};typedef struct mainDishes mD;
+
+struct drinks{
+    int beer = 0, soda = 0, iceTea = 0;
+    
+};typedef struct drinks dS;
 
 struct customerData{
 	string name;
@@ -21,6 +26,7 @@ struct customerData{
 	int phone;
 	eT enTri;
 	mD maDi;
+	dS drK;
 	
 };
 typedef struct customerData cData;
@@ -120,7 +126,7 @@ void delivery(){
 	
 	cout << "\nIngrese sus datos: " << endl;
 	cin.ignore();
-	cout << "\tNombre: ";
+	cout << "\tNombre completo: ";
 	getline(cin, p.name);
 	cout << "\tDireccion: ";
 	getline(cin, p.direction);
@@ -136,17 +142,16 @@ void delivery(){
 				cout << "\n----------------\n";
 				cout << "    ENTRADAS    \n";
 				cout << ".................";
-				cout << "\n\n1. Rollos de pizza\n2. Pan con ajo\n3. Palitos de queso" << endl;
+				cout << "\n\n1. Rollos de piz\n2. Pan con ajo\n3. Palitos de queso" << endl;
 				cout << "Su opcion: ";
 				cin >> option2;
 				switch(option2){
-					case 1: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.rollosDePizza; amount = amount + (4.99 * p.enTri.rollosDePizza); break;
-					case 2: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.panConAjo; amount = amount + (3.99 * p.enTri.panConAjo); break;
-					case 3: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.palitosDeQueso; amount = amount + (3.75 * p.enTri.palitosDeQueso); break;
+					case 1: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.pizzaRolls; amount = amount + (4.99 * p.enTri.pizzaRolls); break;
+					case 2: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.garlicBread; amount = amount + (3.99 * p.enTri.garlicBread); break;
+					case 3: cout << "\n¿Cuantos desea?: "; cin >> p.enTri.cheeseSticks; amount = amount + (3.75 * p.enTri.cheeseSticks); break;
 				}
 				
 		break;
-		
 		case 2: 
 		        cout << "\n-----------------------\n";
 				cout << "   PLATOS PRINCIPALES    \n";
@@ -161,7 +166,20 @@ void delivery(){
 				}
 				
 		break;
-		case 3: break;
+		case 3: 
+		        cout << "\n-----------------\n";
+				cout << "     BEBIDAS    \n";
+				cout << "..................";
+				cout << "\n\n1. Cerveza\n2. Soda\n3. Te helado" << endl;
+				cout << "Su opcion: ";
+				cin >> option4;
+				switch(option4){
+					case 1: cout << "\n¿Cuantos desea?: "; cin >> p.drK.beer; amount = amount + (1.99 * p.drK.beer); break;
+					case 2: cout << "\n¿Cuantos desea?: "; cin >> p.drK.soda; amount = amount + (0.95 * p.drK.soda); break;
+					case 3: cout << "\n¿Cuantos desea?: "; cin >> p.drK.iceTea; amount = amount + (1.15 * p.drK.iceTea); break;
+				} 
+				
+		break;
 		default: "Escoga una opcion corecta"; 
 	}
 	deliveryList.push_back(p);
